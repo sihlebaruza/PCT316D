@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky's Electronics - Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 500px; margin: auto; padding: 20px; background: white; border-radius: 5px; }
+        h1, p { text-align: center; }
+        input { width: 100%; padding: 8px; margin: 10px 0; }
+        input[type="submit"] { background-color: #007bff; color: white; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Lucky's Electronics</h1>
+        <p>Customer Registration</p>
+        
+        <form id="customerForm" onsubmit="submitForm(event)">
+            <input type="text" id="customerName" name="customerName" placeholder="Customer Name" required>
+            <input type="text" id="electronicsType" name="electronicsType" placeholder="Electronics Type (e.g., Smartphone, Laptop)" required>
+            <input type="number" id="price" name="price" placeholder="Price (in ZAR)" required>
+            <input type="date" id="pickupDate" name="pickupDate" required>
+            <input type="tel" id="contactDetails" name="contactDetails" placeholder="Contact Number (10 digits)" maxlength="10" pattern="[0-9]{10}" required title="Please enter a 10-digit number.">
+            <input type="Email" id="email" name="email" placeholder="Email" required>
+			
+			<input type="submit" value="Submit">
+			
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); 
+            console.log("Customer Registration:", {
+                Name: document.getElementById("customerName").value,
+                ElectronicsType: document.getElementById("electronicsType").value,
+                Price: document.getElementById("price").value + " ZAR",
+                PickupDate: document.getElementById("pickupDate").value,
+                ContactDetails: document.getElementById("contactDetails").value,
+				Email: document.getElementById("email").value
+            });
+            alert("Registration successful! Thank you, " + document.getElementById("customerName").value + ".");
+            document.getElementById("customerForm").reset();
+        }
+    </script>
+
+</body>
+</html>
